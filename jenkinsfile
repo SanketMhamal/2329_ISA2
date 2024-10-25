@@ -5,7 +5,7 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 script {
-                   
+                   bat "cd C:\\Users\\sanket\\Desktop\\2329_ISA2"
                    bat "git clone 'https://github.com/SanketMhamal/2329_ISA2.git'" 
                 }
             }
