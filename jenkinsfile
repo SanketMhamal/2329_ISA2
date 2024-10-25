@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                    
-                   bat "git 'https://github.com/SanketMhamal/2329_ISA2.git'" 
+                   bat "git clone 'https://github.com/SanketMhamal/2329_ISA2.git'" 
                 }
             }
         }
