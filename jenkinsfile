@@ -1,0 +1,33 @@
+pipeline {
+    agent any  // Use any available agent
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                script {
+                   
+                    git 'https://github.com/SanketMhamal/2329_ISA2.git'
+                }
+            }
+        }
+        stage('Build Docker Image') {
+            steps {
+                script {
+                   
+                    bat "docker build -t sanketmhamal/dock ."
+                }
+            }
+        }
+        stage('Build and Run Docker Container') {
+            steps {
+                script {
+                    
+                    bat "docker rm -f 2329 || exit 0"
+
+                    // Run the Docker container in detached mode
+                    bat "docker run -d --name 2329 sanketmhamal/dock"
+                }
+            }
+        }
+    }
+}
